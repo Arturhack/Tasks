@@ -3,19 +3,17 @@
 // Get a reference to the button elements using their class
 const myButtons = document.getElementsByClassName("button");
 
-// Define a function to be executed when any of the buttons are clicked
+// Function to handle the "Click me!" button click
 function buttonClickHandler(event) {
   // Get the current time when the button was pressed
   const currentTime = new Date();
 
-  // Do whatever action you want here
-  console.log("Button clicked! Current Time:", currentTime);
+  // Save the current page and visit time to session storage
+  sessionStorage.setItem("lastVisitedPage", window.location.href);
+  sessionStorage.setItem("lastVisitTime", currentTime);
 
   // Redirect to 'started.html' after button click
   window.location.href = "started.html";
-
-  // Save the current time to local storage
-  localStorage.setItem("startTime", currentTime);
 }
 
 // Attach the click event listener to each button and specify the function to be executed
