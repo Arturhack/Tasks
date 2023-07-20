@@ -1,4 +1,4 @@
-// button.js
+// index.js
 
 // Get a reference to the button elements using their class
 const myButtons = document.getElementsByClassName("button");
@@ -8,7 +8,11 @@ function buttonClickHandler(event) {
   // Get the current time when the button was pressed
   const currentTime = new Date();
 
-  // Save the current page and visit time to session storage
+  // Save the current page and visit time to local storage
+  localStorage.setItem("lastVisitedPage", window.location.href);
+  localStorage.setItem("lastVisitTime", currentTime);
+
+  // Save the current page and visit time to session storage as well
   sessionStorage.setItem("lastVisitedPage", window.location.href);
   sessionStorage.setItem("lastVisitTime", currentTime);
 

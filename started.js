@@ -11,6 +11,9 @@ function stopButtonClickHandler(event) {
   // Calculate the time difference
   const timeElapsed = getTimeDifference(new Date(storedStartTime), stopTime);
 
+  // Store the stop time in session storage
+  sessionStorage.setItem("stopTime", stopTime);
+
   // Redirect to 'stop.html' after the "Stop" button is pressed, passing the timeElapsed as a URL parameter
   window.location.href = `stop.html?timeElapsed=${timeElapsed}`;
 }

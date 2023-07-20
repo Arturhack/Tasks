@@ -26,14 +26,18 @@ const backButton = document.getElementById("backButton");
 
 // Function to handle the "Back to Home" button click
 function backButtonClickHandler(event) {
-  // Clear the start and stop times from local storage and session storage
-  localStorage.removeItem("startTime");
-  localStorage.removeItem("stopTime");
+  // Clear the start and stop times from session storage
   sessionStorage.removeItem("startTime");
   sessionStorage.removeItem("stopTime");
 
-  // Redirect back to 'index.html' when the "Back to Home" button is clicked
-  window.location.href = "index.html";
+  // Redirect back to the last visited page when the "Back to Home" button is clicked
+  const lastVisitedPage = sessionStorage.getItem("lastVisitedPage");
+  if (lastVisitedPage) {
+    window.location.href = lastVisitedPage;
+  } else {
+    // If no last visited page is stored, redirect to 'index.html'
+    window.location.href = "index.html";
+  }
 }
 
 // Attach the click event listener to the "Back to Home" button
